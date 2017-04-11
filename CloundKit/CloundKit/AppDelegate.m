@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
+#import <UserNotifications/UserNotifications.h>
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    ViewController *vc = [[ViewController alloc]init];
+    UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:vc];
+    self.window.rootViewController = navc;
+    [self.window makeKeyAndVisible];
+    
+    [self registterNotification:application];
     return YES;
 }
 
@@ -93,6 +102,26 @@
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+
+#pragma mark- 订阅和推送
+-(void)registterNotification:(UIApplication *)application{
+    [application registerForRemoteNotifications];
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert  categories:nil];
+    [application registerUserNotificationSettings:settings];
+}
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    CKDatabase *publlicBase = [[CKContainer defaultContainer]publicCloudDatabase];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
+//    NSString *substribleString = [[UIDevice currentDevice] indentifierForVender]
+    
+}
+-(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+    
+}
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 @end

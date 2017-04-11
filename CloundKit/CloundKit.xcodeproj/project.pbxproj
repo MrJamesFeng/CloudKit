@@ -16,6 +16,7 @@
 		0B1CB0F41E9C76AD0021B3DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B1CB0F21E9C76AD0021B3DD /* LaunchScreen.storyboard */; };
 		0B1CB0FF1E9C76AD0021B3DD /* CloundKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1CB0FE1E9C76AD0021B3DD /* CloundKitTests.m */; };
 		0B1CB10A1E9C76AD0021B3DD /* CloundKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1CB1091E9C76AD0021B3DD /* CloundKitUITests.m */; };
+		0BDF6BBF1E9C801800F25A93 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDF6BBE1E9C801800F25A93 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		0B1CB1051E9C76AD0021B3DD /* CloundKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloundKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B1CB1091E9C76AD0021B3DD /* CloundKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloundKitUITests.m; sourceTree = "<group>"; };
 		0B1CB10B1E9C76AD0021B3DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B1CB1171E9C77580021B3DD /* CloundKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloundKit.entitlements; sourceTree = "<group>"; };
+		0BDF6BBE1E9C801800F25A93 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BDF6BBF1E9C801800F25A93 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,7 @@
 				0B1CB0FD1E9C76AD0021B3DD /* CloundKitTests */,
 				0B1CB1081E9C76AD0021B3DD /* CloundKitUITests */,
 				0B1CB0DF1E9C76AC0021B3DD /* Products */,
+				0B1CB1181E9C77A90021B3DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +108,7 @@
 		0B1CB0E01E9C76AC0021B3DD /* CloundKit */ = {
 			isa = PBXGroup;
 			children = (
+				0B1CB1171E9C77580021B3DD /* CloundKit.entitlements */,
 				0B1CB0E41E9C76AC0021B3DD /* AppDelegate.h */,
 				0B1CB0E51E9C76AC0021B3DD /* AppDelegate.m */,
 				0B1CB0E71E9C76AC0021B3DD /* ViewController.h */,
@@ -141,6 +147,14 @@
 				0B1CB10B1E9C76AD0021B3DD /* Info.plist */,
 			);
 			path = CloundKitUITests;
+			sourceTree = "<group>";
+		};
+		0B1CB1181E9C77A90021B3DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BDF6BBE1E9C801800F25A93 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +226,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2PG34PH6C8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					0B1CB0F91E9C76AD0021B3DD = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -431,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloundKit/CloundKit.entitlements;
 				DEVELOPMENT_TEAM = 2PG34PH6C8;
 				INFOPLIST_FILE = CloundKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -443,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloundKit/CloundKit.entitlements;
 				DEVELOPMENT_TEAM = 2PG34PH6C8;
 				INFOPLIST_FILE = CloundKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -520,6 +544,7 @@
 				0B1CB1101E9C76AD0021B3DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B1CB1111E9C76AD0021B3DD /* Build configuration list for PBXNativeTarget "CloundKitTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +553,7 @@
 				0B1CB1131E9C76AD0021B3DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B1CB1141E9C76AD0021B3DD /* Build configuration list for PBXNativeTarget "CloundKitUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +562,7 @@
 				0B1CB1161E9C76AD0021B3DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
